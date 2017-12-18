@@ -15,7 +15,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 //        $where = array(
 //            array('sex','>',0),
@@ -72,14 +72,14 @@ class HomeController extends Controller
     }
 
     public function session1(Request $request){
-//        $request->session()->put(['key1'=>'value']);
-//        echo $request->session()->get('key1');
-//        session()->put('key2','value2');
-//        echo session()->get('key2');
+/*        $request->session()->put(['key1'=>'value']);
+        echo $request->session()->get('key1');
+        session()->put('key2','value2');
+        echo session()->get('key2');
 
-//        Session::put('key3','value3');
-//        echo Session::get('key3','value3');
-//        echo Session::get('key5','value5');
+        Session::put('key3','value3');
+        echo Session::get('key3','value3');
+        echo Session::get('key5','value5');*/
 
         Session::put(['k1'=>'v1','k2'=>'v2']);
     }

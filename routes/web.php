@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('/');
-Route::get('/home', 'HomeController@index');
-Route::get('home/add', 'HomeController@add')->name('home/add');
-Route::post('home/doadd', 'HomeController@doadd')->name('home/doadd');
-Route::get('home/delete', 'HomeController@delete')->name('home/delete');
-Route::any('home/edit/{id}', 'HomeController@edit');
-Route::group(['middleware'=>['web']],function (){
+Route::any('userlogin', 'LoginController@index');
+Route::any('outlogin', 'LoginController@outlogin');
+Route::group(['middleware'=>['web','CheckLogin']],function (){
+    Route::get('/', 'HomeController@index')->name('/');
+    Route::get('/home', 'HomeController@index');
+    Route::get('home/add', 'HomeController@add')->name('home/add');
+    Route::post('home/doadd', 'HomeController@doadd')->name('home/doadd');
+    Route::get('home/delete', 'HomeController@delete')->name('home/delete');
+    Route::any('home/edit/{id}', 'HomeController@edit');
     Route::any('home/session1', 'HomeController@session1');
     Route::any('home/session2', 'HomeController@session2');
 });

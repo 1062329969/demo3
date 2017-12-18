@@ -265,7 +265,7 @@
                         <ul class="dropdown-menu extended logout">
                             <li><a href="#"><i class="icon-user"></i>我的资料</a></li>
                             <li><a href="#"><i class="icon-cog"></i>我的设置</a></li>
-                            <li><a href="login.html"><i class="icon-key"></i>退出</a></li>
+                            <li><a href="/outlogin"><i class="icon-key"></i>退出</a></li>
                         </ul>
                     </li>
                     <!-- END USER LOGIN DROPDOWN -->
