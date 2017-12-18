@@ -38,7 +38,7 @@
                                         <td class="hidden-phone">{{ $sort -> name  }}</td>
                                         <td>12120.00$ </td>
                                         <td><span class="label label-important label-mini">Due</span></td>
-                                        <td>@if($sort -> img)<img src="{{ asset('/'.$sort -> img) }}" />@endif</td>
+                                        <td>@if($sort -> img)<img src="{{ asset($sort -> img) }}" />@endif</td>
                                         <td>
                                             <button class="btn btn-success"><i class="icon-ok"></i></button>
                                             <a href="/home/edit/{{ $sort ->id  }}" class="btn btn-primary"><i class="icon-pencil"></i></a>

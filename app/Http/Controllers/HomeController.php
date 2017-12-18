@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Input;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -30,7 +31,7 @@ class HomeController extends Controller
     }
 
     public function doadd(Request $request){
-        $path = $request->file('file')->store('uploads');
+        $path = $request->file('file')->store('public/uploads');
         $data = $request->get('data');
         $data['img'] = $path;
         $User = new User();
@@ -60,7 +61,7 @@ class HomeController extends Controller
     public function edit(Request $request,$id){
         $info['user'] = User::find($id);
         if($request->isMethod('post')){
-            $path = $request->file('file')->store('uploads');
+            $path = $request->file('file')->store('public/uploads');
             $data = $request->get('data');
             $data['img'] = $path;
             User::where('id', $id)->update($data);
@@ -84,6 +85,8 @@ class HomeController extends Controller
         Session::put(['k1'=>'v1','k2'=>'v2']);
     }
     public function session2(Request $request){
-        echo Session::get('k2');
+//        echo Session::get('k2');
+        $user = Redis::get('test');
+        dd($user);
     }
 }
