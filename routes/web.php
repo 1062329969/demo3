@@ -22,7 +22,9 @@ Route::group(['middleware'=>['web','CheckLogin']],function (){
     Route::any('home/edit/{id}', 'HomeController@edit');
     Route::any('home/session1', 'HomeController@session1');
     Route::any('home/session2', 'HomeController@session2');
+    Route::any('home/excelexport', 'HomeController@excelexport');
 });
+Route::any('/wechat', 'WeChatController@serve');
 //Route::resource('home', 'HomeController');
 
 Auth::routes();

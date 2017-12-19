@@ -304,6 +304,18 @@
                         <span>添加</span>
                     </a>
                 </li>
+                <li class="sub-menu">
+                    <a class="" href="/home/excelexport">
+                        <i class="icon-book"></i>
+                        <span>导出</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a class="" href="/wechat">
+                        <i class="icon-book"></i>
+                        <span>微信</span>
+                    </a>
+                </li>
             </ul>
             <!-- END SIDEBAR MENU -->
         </div>

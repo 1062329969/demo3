@@ -16,7 +16,7 @@
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <input type="text" placeholder="Username" name="data[name]">
                 <input type="password" placeholder="Password" name="data[password]">
-                <button type="submit" id="login-button">Login</button>
+                <input type="submit" id="login-button" value="Login">
             </form>
         </div>
         <ul class="bg-bubbles">

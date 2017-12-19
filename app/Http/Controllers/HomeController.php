@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Alluser;
 use App\Model\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Input;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Session;
+use Excel;
 
 class HomeController extends Controller
 {
@@ -68,8 +71,25 @@ class HomeController extends Controller
             return redirect('/')->with('success','添加成功');
         }else{
             $info['edit'] = 1;
-            return view('home/add',$info);
+            return view('home/edit',$info);
         }
+    }
+
+    public function excelexport(){
+        $cellData = [
+            ['ID','姓名','密码'],
+        ];
+        $user = User::orderBy('id','desc')->get(['id','name','password']);
+        $temp = array();
+        foreach ($user as $k => $v){
+            $temp[] = [$v->id,$v->name,$v->password];
+        }
+        $cellData +=$temp;
+        Excel::create('学生成绩',function($excel) use ($cellData){
+            $excel->sheet('score', function($sheet) use ($cellData){
+                $sheet->rows($cellData);
+            });
+        })->export('xls');
     }
 
     public function session1(Request $request){
@@ -86,7 +106,9 @@ class HomeController extends Controller
     }
     public function session2(Request $request){
 //        echo Session::get('k2');
-        $user = Redis::get('test');
-        dd($user);
+//        $user = Redis::get('test');
+//        dd($user);
+        $info = Alluser::find(10)->userinfo;
+        var_dump($info);
     }
 }

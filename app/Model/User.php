@@ -10,8 +10,6 @@ class User extends Model
 //    use SoftDeletes;
     protected $table = 'users';
 
-
-
     protected $order = '';
 
 //    public function delete($id){
