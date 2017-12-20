@@ -8,13 +8,16 @@
                     <!-- BEGIN SAMPLE FORMPORTLET-->
                     <div class="widget green">
                         <div class="widget-title">
-                            <h4><i class="icon-reorder"></i> Form Layouts</h4>
+                            <h4>
+                                <i class="icon-reorder"></i> Form Layouts
+                            </h4>
                             <span class="tools">
                             <a href="javascript:;" class="icon-chevron-down"></a>
                             <a href="javascript:;" class="icon-remove"></a>
                             </span>
                         </div>
                         <div class="widget-body">
+                            @include('common/validate')
                             <!-- BEGIN FORM-->
                             @if(isset($edit) == 'home/edit')
                             <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">

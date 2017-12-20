@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Session;
 use Excel;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -34,7 +35,36 @@ class HomeController extends Controller
     }
 
     public function doadd(Request $request){
-        $path = $request->file('file')->store('public/uploads');
+//        $path = $request->file('file')->store('public/uploads');
+        $file = $request->file('file');
+        if($file->isValid()){
+            //原文件名
+            $originalName = $file->getClientOriginalName();
+            //扩展
+            $ext = $file->getClientOriginalExtension();
+            //Mime type
+            $type = $file->getClientMimeType();
+            //临时绝对路径
+            $realpath = $file->getRealPath();
+            $filename = date('Y-m-d-H-i-s').'_'.uniqid().'.'.$ext;
+            $bool = Storage::disk('uploads')->put($filename,file_get_contents($realpath));
+            if($bool){
+                $path = $filename;
+            }else{
+                $path = '';
+            }
+        }else{
+            $path = '';
+        }
+        $this->validate($request, [
+            'data.name' => 'required',
+            'data.password' => 'required',
+        ],[
+            'required'=>':attribute 为必填项',
+        ],[
+            'data.name'=>'姓名',
+            'data.password'=>'密码',
+        ]);
         $data = $request->get('data');
         $data['img'] = $path;
         $User = new User();

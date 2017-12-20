@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        View::share('key', 'value');
+        view()->share('keys','Laravel学院');
     }
 
     /**
