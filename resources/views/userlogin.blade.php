@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="zh">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -14,8 +14,9 @@
             <h1>Welcome</h1>
             <form class="form" action="/userlogin" method="post">
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                <input type="text" placeholder="Username" name="data[name]">
-                <input type="password" placeholder="Password" name="data[password]">
+                <input type="text" placeholder="Username" name="data[name]" id="un1">
+                <input type="password" placeholder="Password" name="data[password]" id="un2">
+                {{--<input type="button" value="Login" id="login-button" />--}}
                 <input type="submit" id="login-button" value="Login">
             </form>
         </div>
@@ -37,7 +38,6 @@
 <script src="{{ asset('js/login/jquery-2.1.1.min.js') }}" type="text/javascript"></script>
 <script>
     $('#login-button').click(function (event) {
-        event.preventDefault();
         $('form').fadeOut(500);
         $('.wrapper').addClass('form-success');
         $('form').submit();
