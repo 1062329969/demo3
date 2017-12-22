@@ -316,6 +316,12 @@
                         <span>微信</span>
                     </a>
                 </li>
+                <li class="sub-menu">
+                    <a class="" href="/order/setorder">
+                        <i class="icon-book"></i>
+                        <span>支付宝</span>
+                    </a>
+                </li>
             </ul>
             <!-- END SIDEBAR MENU -->
         </div>
