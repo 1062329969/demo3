@@ -43,8 +43,7 @@
                                             <button class="btn btn-success"><i class="icon-ok"></i></button>
                                             <a href="/home/edit/{{ $sort ->id  }}" class="btn btn-primary"><i class="icon-pencil"></i></a>
                                             <button class="btn btn-danger" data="{{ $sort ->id  }}"><i class="icon-trash "></i></button>
-                                            <button class="btn btn-success" onclick="dotel(this)" c><i class="icon-hand-up"></i></button>
-                                            <a href="tel://15101573480" style="display: none" class="btn btn-primary">拨打</a>
+                                            <a href="tel://15101573480" style="" class="btn btn-primary" onclick="return dotel()"><i class="icon-hand-up"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -61,25 +60,25 @@
         </div>
         <!-- END PAGE CONTAINER-->
     </div>
-<script>
-    $(function () {
-        $('.btn-danger').click(function () {
-            var _id = $(this).attr('data');
-            var _self = $(this);
-            $.ajax({
-                type: "GET",
-                url: "/home/delete",
-                data: {'id':_id},
-                success: function(data){
-                    alert(data);
-                    _self.parents('tr').remove();
-                }
-            });
+    <script>
+        $(function () {
+            $('.btn-danger').click(function () {
+                var _id = $(this).attr('data');
+                var _self = $(this);
+                $.ajax({
+                    type: "GET",
+                    url: "/home/delete",
+                    data: {'id':_id},
+                    success: function(data){
+                        alert(data);
+                        _self.parents('tr').remove();
+                    }
+                });
+            })
         })
-    })
-    function dotel(_self) {
-        alert('正在准备拨打电话');
-        $(_self).next().click();
-    }
-</script>
+        function dotel() {
+            alert('正在准备拨打电话');
+            return true;
+        }
+    </script>
 @endsection
