@@ -16,32 +16,15 @@ class WeChatController extends Controller
      */
     public function serve()
     {
-        $config = [
-            'app_id' => 'wx88738206909faa68',
-            'secret' => '7e7cb085c0c0f5ed1d2c86d0f82a4081',
-            'token' => 'yixin',           // Token
-            'aes_key' => 'pjlG4Usckof34UdwACxDouCJ9lRMcwpGPTFoAwVOxvO',                 // EncodingAESKey
+        Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
 
-            'response_type' => 'array',
+        $wechat = app('wechat');
+        $wechat->server->setMessageHandler(function($message){
+            return "欢迎关注 overtrue！";
+        });
 
-            'log' => [
-                'level' => 'debug',
-                'file' => __DIR__.'/wechat.log',
-            ],
-        ];
+        Log::info('return response.');
 
-        $app = Factory::officialAccount($config);
-
-        $response = $app->server->serve();
-
-// 将响应输出
-        $response->send(); // Laravel 里请使用：return $response;
-//        Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
-//
-//        $app = app('wechat.official_account');
-//        $app->server->push(function($message){
-//            return "欢迎关注 overtrue！";
-//        });
-//        return $app->server->serve();
+        return $wechat->server->serve();
     }
 }
