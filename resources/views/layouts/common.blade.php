@@ -322,6 +322,15 @@
                         <span>支付宝</span>
                     </a>
                 </li>
+                <li class="sub-menu">
+                    <a class="" href="javascript:;">
+                        <i class="icon-cogs"></i>
+                        <span>图标</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="/echarts/map">地图</a></li>
+                    </ul>
+                </li>
             </ul>
             <!-- END SIDEBAR MENU -->
         </div>
