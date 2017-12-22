@@ -23,14 +23,13 @@ Route::group(['middleware'=>['web','CheckLogin']],function (){
     Route::any('home/session1', 'HomeController@session1');
     Route::any('home/session2', 'HomeController@session2');
     Route::any('home/excelexport', 'HomeController@excelexport');
-    Route::any('/wechat', 'WeChatController@serve');
     Route::any('/order/setorder', 'OrderController@set_order');
     Route::any('/pay/return_url', 'PayController@return_url');
     Route::any('/pay/return_url', 'PayController@return_url');
     Route::any('/pay/notify_url', 'PayController@notify_url');
     Route::get('/echarts/map', 'EchartsController@map');
 });
-
+Route::any('/wechat', 'WeChatController@serve');
 //Route::resource('home', 'HomeController');
 
 Auth::routes();
