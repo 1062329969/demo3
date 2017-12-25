@@ -16,10 +16,10 @@ class WeChatController extends Controller
     public function serve()
     {
         $config = [
-            'app_id' => 'wx88738206909faa68',
-            'secret' => '7e7cb085c0c0f5ed1d2c86d0f82a4081',
-//            'token' => 'yixin',           // Token
-//            'aes_key' => 'pjlG4Usckof34UdwACxDouCJ9lRMcwpGPTFoAwVOxvO',                 // EncodingAESKey
+            'app_id' => 'wx4b00aa6a53489c21',
+            'secret' => 'f1f37c16e79c7c977c16fea02ea73e72',
+            'token' => 'yixin',           // Token
+            'aes_key' => 'pjlG4Usckof34UdwACxDouCJ9lRMcwpGPTFoAwVOxvO',                 // EncodingAESKey
             'response_type' => 'array',
             'log' => [
                 'level' => 'debug',
