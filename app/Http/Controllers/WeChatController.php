@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Input;
-use EasyWeChat\Foundation\Application;
+use Log;
+use EasyWeChat\Factory;
 class WeChatController extends Controller
 {
 
@@ -14,26 +15,17 @@ class WeChatController extends Controller
      */
     public function serve()
     {
-        $options = [
-            'debug'  => true,
-            'app_id' => 'wx083fd9c68238faaf',
-            'secret' => '58a5ad9bbcaaab65afdce9bee1fdc545',
-            'token'  => 'weixinlx',
-
-            // 'aes_key' => null, // 可选
-
+        $config = [
+            'app_id' => 'wx4b00aa6a53489c21',
+            'secret' => 'f1f37c16e79c7c977c16fea02ea73e72',
+            'response_type' => 'array',
             'log' => [
                 'level' => 'debug',
-                'file'  => '/tmp/easywechat.log', // XXX: 绝对路径！！！！
+                'file' => __DIR__.'/wechat.log',
             ],
-
-            //...
         ];
-
-        $app = new Application($options);
-
+        $app = Factory::officialAccount($config);
         $response = $app->server->serve();
-
 // 将响应输出
         return $response; // Laravel 里请使用：return $response;
     }

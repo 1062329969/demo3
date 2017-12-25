@@ -65,9 +65,9 @@ return [
      * 公众号
      */
     'official_account' => [
-        'app_id' => env('WECHAT_OFFICIAL_ACCOUNT_APPID', 'wx083fd9c68238faaf'),         // AppID
-        'secret' => env('WECHAT_OFFICIAL_ACCOUNT_SECRET', '58a5ad9bbcaaab65afdce9bee1fdc545'),    // AppSecret
-        'token' => env('WECHAT_OFFICIAL_ACCOUNT_TOKEN', 'weixinlx'),           // Token
+        'app_id' => env('WECHAT_OFFICIAL_ACCOUNT_APPID', 'wx4b00aa6a53489c21'),         // AppID
+        'secret' => env('WECHAT_OFFICIAL_ACCOUNT_SECRET', 'f1f37c16e79c7c977c16fea02ea73e72'),    // AppSecret
+        'token' => env('WECHAT_OFFICIAL_ACCOUNT_TOKEN', 'yixin'),           // Token
         'aes_key' => env('WECHAT_OFFICIAL_ACCOUNT_AES_KEY', 'pjlG4Usckof34UdwACxDouCJ9lRMcwpGPTFoAwVOxvO'),                 // EncodingAESKey
 
         /*
