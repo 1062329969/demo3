@@ -16,9 +16,9 @@ class WeChatController extends Controller
     {
         $options = [
             'debug'  => true,
-            'app_id' => 'your-app-id',
-            'secret' => 'you-secret',
-            'token'  => 'easywechat',
+            'app_id' => 'wx083fd9c68238faaf',
+            'secret' => '58a5ad9bbcaaab65afdce9bee1fdc545',
+            'token'  => 'weixinlx',
 
             // 'aes_key' => null, // 可选
 
@@ -35,6 +35,6 @@ class WeChatController extends Controller
         $response = $app->server->serve();
 
 // 将响应输出
-        $response->send(); // Laravel 里请使用：return $response;
+        return $response; // Laravel 里请使用：return $response;
     }
 }
