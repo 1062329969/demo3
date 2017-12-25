@@ -18,14 +18,15 @@ class WeChatController extends Controller
         $config = [
             'app_id' => 'wx88738206909faa68',
             'secret' => '7e7cb085c0c0f5ed1d2c86d0f82a4081',
-            'token' => 'yixin',           // Token
-            'response_type' => 'array',
+            'token' => 'yixin',
             'log' => [
                 'level' => 'debug',
                 'file' => __DIR__.'/wechat.log',
             ],
         ];
+
         $app = Factory::officialAccount($config);
+
         $response = $app->server->serve();
 // 将响应输出
         return $response; // Laravel 里请使用：return $response;
