@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Input;
-
+use EasyWeChat\Foundation\Application;
 class WeChatController extends Controller
 {
 
@@ -14,11 +14,27 @@ class WeChatController extends Controller
      */
     public function serve()
     {
-        $app = app('wechat.official_account');
-        $app->server->push(function($message){
-            return "欢迎关注 overtrue！";
-        });
+        $options = [
+            'debug'  => true,
+            'app_id' => 'your-app-id',
+            'secret' => 'you-secret',
+            'token'  => 'easywechat',
 
-        return $app->server->serve();
+            // 'aes_key' => null, // 可选
+
+            'log' => [
+                'level' => 'debug',
+                'file'  => '/tmp/easywechat.log', // XXX: 绝对路径！！！！
+            ],
+
+            //...
+        ];
+
+        $app = new Application($options);
+
+        $response = $app->server->serve();
+
+// 将响应输出
+        $response->send(); // Laravel 里请使用：return $response;
     }
 }
