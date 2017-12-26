@@ -27,9 +27,9 @@ class WeChatController extends Controller
 
         $app = Factory::officialAccount($config);
 
-        $response = $app->server->serve();
         $app->server->push(function ($message) {
-            return "您好！欢迎使用 EasyWeChat!";
+            Log::info(json_encode($message));
+            return json_encode($message);
         });
 
         $response = $app->server->serve();
