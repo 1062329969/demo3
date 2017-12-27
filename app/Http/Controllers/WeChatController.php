@@ -15,17 +15,17 @@ class WeChatController extends Controller
      */
     public function serve()
     {
-        $config = [
-            'app_id' => 'wx88738206909faa68',
-            'secret' => '7e7cb085c0c0f5ed1d2c86d0f82a4081',
-            'token' => 'yixin',
-            'log' => [
-                'level' => 'debug',
-                'file' => __DIR__.'/wechat.log',
-            ],
-        ];
+//        $config = [
+//            'app_id' => 'wx88738206909faa68',
+//            'secret' => '7e7cb085c0c0f5ed1d2c86d0f82a4081',
+//            'token' => 'yixin',
+//            'log' => [
+//                'level' => 'debug',
+//                'file' => __DIR__.'/wechat.log',
+//            ],
+//        ];
 
-        $app = Factory::officialAccount($config);
+        $app = Factory::officialAccount(config('wechat')['official_account']);
 
         $app->server->push(function ($message) {
             Log::info(json_encode($message));
