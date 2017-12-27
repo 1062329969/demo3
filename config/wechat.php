@@ -70,7 +70,10 @@ return [
 //        'secret' => env('WECHAT_OFFICIAL_ACCOUNT_SECRET', 'f1f37c16e79c7c977c16fea02ea73e72'),    // AppSecret
         'token' => env('WECHAT_OFFICIAL_ACCOUNT_TOKEN', 'yixin'),           // Token
         'aes_key' => env('WECHAT_OFFICIAL_ACCOUNT_AES_KEY', 'pjlG4Usckof34UdwACxDouCJ9lRMcwpGPTFoAwVOxvO'),                 // EncodingAESKey
-
+        'log' => [
+            'level' => 'debug',
+            'file' => __DIR__.'/wechat.log',
+        ],
         /*
          * OAuth 配置
          *

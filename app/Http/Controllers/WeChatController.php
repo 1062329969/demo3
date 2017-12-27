@@ -25,8 +25,7 @@ class WeChatController extends Controller
 //            ],
 //        ];
 
-        $app = Factory::officialAccount(config('wechat')['official_account']);
-
+        $app = Factory::officialAccount(config('wechat.official_account'));
         $app->server->push(function ($message) {
             Log::info(json_encode($message));
             return json_encode($message);
