@@ -119,8 +119,7 @@ class WeChatController extends Controller
 
         $_SESSION['wechat_user'] = $user->toArray();
 
-        $targetUrl = empty($_SESSION['target_url']) ? '/' : $_SESSION['target_url'];
 
-        header('location:'. $targetUrl); // 跳转到 user/profile
+        header('location:http://yixin.webhero.top/'); // 跳转到 user/profile
     }
 }
