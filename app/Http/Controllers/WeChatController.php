@@ -115,6 +115,8 @@ class WeChatController extends Controller
     }
 
     public function jssdk(){
-        return view('wechat/jssdk');
+        $app = app('wechat.official_account');
+        $config = $app->jssdk->buildConfig(['onMenuShareQQ', 'onMenuShareWeibo'],true);
+        return view('wechat/jssdk',['config'=>$config]);
     }
 }
