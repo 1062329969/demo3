@@ -97,11 +97,8 @@ class WeChatController extends Controller
             // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
             // $oauth->redirect()->send();
         }
-
 // 已经登录过
-        $user = $_SESSION['wechat_user'];
 //        $response = $app->server->serve();
-
 // 将响应输出
 //        return $response; // Laravel 里请使用：return $response;
     }
@@ -112,10 +109,6 @@ class WeChatController extends Controller
 
 // 获取 OAuth 授权结果用户信息
         $user = $oauth->user();
-
-        $_SESSION['wechat_user'] = $user->toArray();
-
-
-        header('location:http://yixin.webhero.top/'); // 跳转到 user/profile
+        dd($user->toArray());
     }
 }
