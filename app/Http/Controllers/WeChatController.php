@@ -111,4 +111,8 @@ class WeChatController extends Controller
         $user = $oauth->user();
         dd($user->toArray());
     }
+    public function getwxuser(){
+        $app = app('wechat.official_account');
+        dd($app->user->list());
+    }
 }

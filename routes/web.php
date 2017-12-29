@@ -30,6 +30,7 @@ Route::group(['middleware'=>['web','CheckLogin']],function (){
     Route::get('/echarts/map', 'EchartsController@map');
     Route::any('/wechat', 'WeChatController@serve');
     Route::any('/wechatgetuser', 'WeChatController@getuser');
+    Route::any('/wechat/getuser', 'WeChatController@getwxuser');
 });
 
 //Route::resource('home', 'HomeController');

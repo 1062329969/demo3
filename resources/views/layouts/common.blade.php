@@ -311,10 +311,14 @@
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a class="" href="/wechat">
+                    <a class="" href="javascript:;">
                         <i class="icon-book"></i>
                         <span>微信</span>
                     </a>
+                    <ul class="sub">
+                        <li><a class="" href="/wechat">微信</a></li>
+                        <li><a class="" href="/wechat/getuser">用户信息</a></li>
+                    </ul>
                 </li>
                 <li class="sub-menu">
                     <a class="" href="/order/setorder">
