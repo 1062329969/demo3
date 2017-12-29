@@ -29,7 +29,8 @@ Route::group(['middleware'=>['web','CheckLogin']],function (){
     Route::any('/pay/notify_url', 'PayController@notify_url');
     Route::get('/echarts/map', 'EchartsController@map');
     Route::any('/wechat', 'WeChatController@serve');
-    Route::any('/wechatgetuser', 'WeChatController@getuser');
+    Route::any('/wechat/wxoauth', 'WeChatController@wxoauth');
+    Route::any('/wechat/wxgetuser', 'WeChatController@getuser');
     Route::any('/wechat/getuser', 'WeChatController@getwxuser');
 });
 

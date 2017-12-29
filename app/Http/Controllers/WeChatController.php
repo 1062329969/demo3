@@ -16,15 +16,6 @@ class WeChatController extends Controller
      */
     public function serve()
     {
-//        $config = [
-//            'app_id' => 'wx88738206909faa68',
-//            'secret' => '7e7cb085c0c0f5ed1d2c86d0f82a4081',
-//            'token' => 'yixin',
-//            'log' => [
-//                'level' => 'debug',
-//                'file' => __DIR__.'/wechat.log',
-//            ],
-//        ];
         $app = app('wechat.official_account');
 
         /*$app->server->push(function ($message) use ($app) {
@@ -34,9 +25,9 @@ class WeChatController extends Controller
         $app->server->push(function ($message){
             return '你发了一张图片';
         },Message::VOICE);*/
-        // $app->server->push(function ($message) {
-        //     return json_encode(111);
-        // });
+         $app->server->push(function ($message) {
+             return '关注成功';
+         });
 
         //菜单
         // $app->menu->delete();
@@ -89,18 +80,18 @@ class WeChatController extends Controller
         // 	],
         // ]);
 //         dd($template_list);
-        $oauth = $app->oauth;
+// 已经登录过
+        $response = $app->server->serve();
+// 将响应输出
+        return $response; // Laravel 里请使用：return $response;
+    }
 
-// 未登录
+    public function wxoauth(){
+        $app = app('wechat.official_account');
+        $oauth = $app->oauth;
         if (empty($_SESSION['wechat_user'])) {
             return $oauth->redirect();
-            // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
-            // $oauth->redirect()->send();
         }
-// 已经登录过
-//        $response = $app->server->serve();
-// 将响应输出
-//        return $response; // Laravel 里请使用：return $response;
     }
 
     public function getuser(){
