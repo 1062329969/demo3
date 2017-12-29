@@ -100,6 +100,7 @@ class WeChatController extends Controller
     public function getwxuser(){
         $app = app('wechat.official_account');
         $list = $app->user->list();
-        return view('wechat/home',['list'=>$list]);
+        $users = $app->user->select($list['data']['openid']);
+        return view('wechat/home',['list'=>$users['user_info_list']]);
     }
 }

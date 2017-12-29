@@ -24,13 +24,25 @@
                                 <thead>
                                 <tr>
                                     <th><i class=" icon-edit"></i> openid</th>
+                                    <th><i class=" icon-edit"></i> nickname</th>
+                                    <th><i class=" icon-edit"></i> sex</th>
+                                    <th><i class=" icon-edit"></i> country</th>
+                                    <th><i class=" icon-edit"></i> province</th>
+                                    <th><i class=" icon-edit"></i> city</th>
+                                    <th><i class=" icon-edit"></i> headimgurl</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($list['data']['openid'] as $key=>$sort)
                                     <tr>
-                                        <td>{{ $sort }}</td>
+                                        <td>{{ $sort->openid }}</td>
+                                        <td>{{ $sort->nickname }}</td>
+                                        <td>@if($sort ->sex==1)男@else女@endif</td>
+                                        <td>{{ $sort->country }}</td>
+                                        <td>{{ $sort->province }}</td>
+                                        <td>{{ $sort->city }}</td>
+                                        <td><img src="{{ $sort->headimgurl }}"> </td>
                                         <td>
                                         </td>
                                     </tr>
