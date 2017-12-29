@@ -25,6 +25,7 @@
                                 <tr>
                                     <th><i class=" icon-edit"></i> openid</th>
                                     <th><i class=" icon-edit"></i> nickname</th>
+                                    <th><i class=" icon-edit"></i> remark</th>
                                     <th><i class=" icon-edit"></i> sex</th>
                                     <th><i class=" icon-edit"></i> country</th>
                                     <th><i class=" icon-edit"></i> province</th>
@@ -34,22 +35,22 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($list['data']['openid'] as $key=>$sort)
+                                @foreach($list as $key=>$sort)
                                     <tr>
-                                        <td>{{ $sort->openid }}</td>
-                                        <td>{{ $sort->nickname }}</td>
-                                        <td>@if($sort ->sex==1)男@else女@endif</td>
-                                        <td>{{ $sort->country }}</td>
-                                        <td>{{ $sort->province }}</td>
-                                        <td>{{ $sort->city }}</td>
-                                        <td><img src="{{ $sort->headimgurl }}"> </td>
+                                        <td>{{ $sort['openid']}}</td>
+                                        <td>{{ $sort['nickname']}}</td>
+                                        <td>{{ $sort['remark']}}</td>
+                                        <td>@if($sort['sex']==1)男@else女@endif</td>
+                                        <td>{{ $sort['country']}}</td>
+                                        <td>{{ $sort['province']}}</td>
+                                        <td>{{ $sort['city']}}</td>
+                                        <td><img src="{{ $sort['headimgurl'] }}"> </td>
                                         <td>
+                                            <button class="btn icon-pencil" data-openid="{{ $sort['openid']}}"><i class="icon-ok"></i></button>
                                         </td>
                                     </tr>
                                 @endforeach
-                                <tr>
-                                    <td colspan="6" class="pagination">{{ $list->links() }}</td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -60,4 +61,21 @@
         </div>
         <!-- END PAGE CONTAINER-->
     </div>
+    <script>
+        $(function () {
+            $('.btn-pencil').click(function () {
+                var remark = prompt('请输入文字','');
+                var openid = $(this).attr('data-openid');
+                $.ajax({
+                    type: "POST",
+                    url: "/wechat/remark",
+                    data: {'openid':openid,'remark':remark},
+                    success: function(data){
+                        alert('修改备注成功');
+                        window.location.reload();
+                    }
+                });
+            })
+        })
+    </script>
 @endsection

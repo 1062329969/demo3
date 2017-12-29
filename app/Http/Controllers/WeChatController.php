@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Input;
+use Illuminate\Http\Request;
 use Log;
 use EasyWeChat\Factory;
 use EasyWeChat\Kernel\Messages\Message;
@@ -102,5 +103,14 @@ class WeChatController extends Controller
         $list = $app->user->list();
         $users = $app->user->select($list['data']['openid']);
         return view('wechat/home',['list'=>$users['user_info_list']]);
+    }
+
+    public function remark(Request $request){
+        if($request->isMethod('post')){
+            $app = app('wechat.official_account');
+            $openid = $request->get('openid');
+            $remark = $request->get('remark');
+            dd($app->user->remark($openid, $remark));
+        }
     }
 }
