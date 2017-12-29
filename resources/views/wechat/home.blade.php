@@ -5,6 +5,7 @@
     @elseif(Session::has('error'))
         {{ Session::get('error') }}
     @endif
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <div id="main-content">
         <!-- BEGIN PAGE CONTAINER-->
         <div class="container-fluid">
@@ -44,9 +45,9 @@
                                         <td>{{ $sort['country']}}</td>
                                         <td>{{ $sort['province']}}</td>
                                         <td>{{ $sort['city']}}</td>
-                                        <td><img src="{{ $sort['headimgurl'] }}"> </td>
+                                        <td><img src="{{ $sort['headimgurl'] }}" style="width:10%"> </td>
                                         <td>
-                                            <button class="btn icon-pencil" data-openid="{{ $sort['openid']}}"><i class="icon-ok"></i></button>
+                                            <button class="btn btn-success" data-openid="{{ $sort['openid']}}"><i class="icon-pencil"></i></button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -63,10 +64,11 @@
     </div>
     <script>
         $(function () {
-            $('.btn-pencil').click(function () {
+            $('.btn-success').click(function () {
                 var remark = prompt('请输入文字','');
                 var openid = $(this).attr('data-openid');
                 $.ajax({
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                     type: "POST",
                     url: "/wechat/remark",
                     data: {'openid':openid,'remark':remark},
