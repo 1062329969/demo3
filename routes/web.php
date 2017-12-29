@@ -28,11 +28,11 @@ Route::group(['middleware'=>['web','CheckLogin']],function (){
     Route::any('/pay/return_url', 'PayController@return_url');
     Route::any('/pay/notify_url', 'PayController@notify_url');
     Route::get('/echarts/map', 'EchartsController@map');
-    Route::any('/wechat', 'WeChatController@serve');
-    Route::any('/wechat/wxoauth', 'WeChatController@wxoauth');
-    Route::any('/wechat/wxgetuser', 'WeChatController@getuser');
-    Route::any('/wechat/getuser', 'WeChatController@getwxuser');
 });
+Route::any('/wechat', 'WeChatController@serve');
+Route::any('/wechat/wxoauth', 'WeChatController@wxoauth');
+Route::any('/wechat/wxgetuser', 'WeChatController@getuser');
+Route::any('/wechat/getuser', 'WeChatController@getwxuser');
 
 //Route::resource('home', 'HomeController');
 
