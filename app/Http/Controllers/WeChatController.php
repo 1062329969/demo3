@@ -113,4 +113,8 @@ class WeChatController extends Controller
             dd($app->user->remark($openid, $remark));
         }
     }
+
+    public function jssdk(){
+        return view('wechat/jssdk');
+    }
 }

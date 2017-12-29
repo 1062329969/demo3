@@ -32,6 +32,7 @@ Route::group(['middleware'=>['web','CheckLogin']],function (){
     Route::any('/wechat/wxgetuser', 'WeChatController@getuser');
     Route::any('/wechat/getuser', 'WeChatController@getwxuser');
     Route::any('/wechat/remark', 'WeChatController@remark');
+    Route::any('/wechat/jssdk', 'WeChatController@jssdk');
 });
 Route::any('/wechat', 'WeChatController@serve');
 
