@@ -320,6 +320,7 @@
                         <li><a class="" href="/wechat/wxoauth">微信授权</a></li>
                         <li><a class="" href="/wechat/wxgetuser">用户信息</a></li>
                         <li><a class="" href="/wechat/getuser">用户列表</a></li>
+                        <li><a class="" href="/wechat/jssdk">JSSDK</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
