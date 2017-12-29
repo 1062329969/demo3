@@ -24,12 +24,10 @@ class WeChatController extends Controller
         $app->server->push(function ($message){
             return '你发了一张图片';
         },Message::VOICE);*/
-        $app->server->push(function ($message) {
-            return "您好！欢迎使用 EasyWeChat";
+        $app->server->push(function($message){
+            return "欢迎关注你，欢迎来到朕的世界！";
         });
-        $response = $app->server->serve();
-        return $response;
-
+        return $app->server->serve();
         //菜单
         // $app->menu->delete();
         //       $buttons = [
