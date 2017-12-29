@@ -17,7 +17,6 @@ class WeChatController extends Controller
     public function serve()
     {
         $app = app('wechat.official_account');
-
         /*$app->server->push(function ($message) use ($app) {
             $user = $app->user->get($message['FromUserName']);
             return $user['nickname'];
@@ -25,9 +24,11 @@ class WeChatController extends Controller
         $app->server->push(function ($message){
             return '你发了一张图片';
         },Message::VOICE);*/
-         $app->server->push(function ($message) {
-             return '关注成功';
-         });
+        $app->server->push(function ($message) {
+            return "您好！欢迎使用 EasyWeChat";
+        });
+        $response = $app->server->serve();
+        return $response;
 
         //菜单
         // $app->menu->delete();
@@ -80,10 +81,6 @@ class WeChatController extends Controller
         // 	],
         // ]);
 //         dd($template_list);
-// 已经登录过
-        $response = $app->server->serve();
-// 将响应输出
-        return $response; // Laravel 里请使用：return $response;
     }
 
     public function wxoauth(){
