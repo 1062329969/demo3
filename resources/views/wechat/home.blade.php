@@ -48,25 +48,4 @@
         </div>
         <!-- END PAGE CONTAINER-->
     </div>
-    <script>
-        $(function () {
-            $('.btn-danger').click(function () {
-                var _id = $(this).attr('data');
-                var _self = $(this);
-                $.ajax({
-                    type: "GET",
-                    url: "/home/delete",
-                    data: {'id':_id},
-                    success: function(data){
-                        alert(data);
-                        _self.parents('tr').remove();
-                    }
-                });
-            })
-        })
-        function dotel() {
-            alert('正在准备拨打电话');
-            return true;
-        }
-    </script>
 @endsection

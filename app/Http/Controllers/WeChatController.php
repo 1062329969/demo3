@@ -100,6 +100,6 @@ class WeChatController extends Controller
     public function getwxuser(){
         $app = app('wechat.official_account');
         $list = $app->user->list();
-        return view('home/home',['list'=>$list]);
+        return view('wechat/home',['list'=>$list]);
     }
 }
