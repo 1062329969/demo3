@@ -22,6 +22,7 @@ Route::group(['middleware'=>['web','CheckLogin']],function (){
     Route::any('home/edit/{id}', 'HomeController@edit');
     Route::any('home/session1', 'HomeController@session1');
     Route::any('home/session2', 'HomeController@session2');
+    Route::any('home/sendsms', 'HomeController@send_sms');
     Route::any('home/excelexport', 'HomeController@excelexport');
     Route::any('/order/setorder', 'OrderController@set_order');
     Route::any('/pay/return_url', 'PayController@return_url');

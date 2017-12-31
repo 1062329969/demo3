@@ -311,6 +311,12 @@
                     </a>
                 </li>
                 <li class="sub-menu">
+                    <a class="" href="/home/sendsms">
+                        <i class="icon-book"></i>
+                        <span>短信</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
                     <a class="" href="javascript:;">
                         <i class="icon-book"></i>
                         <span>微信</span>

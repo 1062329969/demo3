@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Session;
 use Excel;
 use Illuminate\Support\Facades\Storage;
+use iscms\Alisms\SendsmsPusher as Sms;
 
 class HomeController extends Controller
 {
@@ -140,5 +141,20 @@ class HomeController extends Controller
 //        dd($user);
         $info = Alluser::find(10)->userinfo;
         var_dump($info);
+    }
+
+    public function send_sms(Sms $sms)
+    {
+        $phone = '15101573480'; // 用户手机号，接收验证码
+        $name = '干点活';  // 短信签名,可以在阿里大鱼的管理中心看到
+        $num = rand(100000, 999999); // 生成随机验证码
+        $smsParams = [
+            'code' => $num,
+            'product' => '干点活'
+        ];
+        $content = json_encode($smsParams); // 转换成json格式的
+        $code = "SMS_76025500";   // 阿里大于(鱼)短信模板ID
+        $result = $sms->send($phone, $name, $content, $code);
+        dd($result);
     }
 }
